@@ -20,7 +20,7 @@ async function sendContactData(event) {
     body: JSON.stringify(product_data)
   });
 
-  const result = await response.json();
-  console.log(result);
+  // const result = await response.json();
+  // console.log(result);
 
 }
