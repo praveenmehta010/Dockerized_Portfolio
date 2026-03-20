@@ -33,12 +33,15 @@
 # }
 # """
 
-from datetime import datetime
-from pydantic import BaseModel, PositiveInt
+from datetime import datetime, timezone
+from pydantic import BaseModel, Field, PositiveInt
 
 class Contact(BaseModel):
     name : str = "Default_Name"
     email : str = "default@gmail.com"
     message : str = "Default Message"
     status : str = "unread"
-    created_at : datetime | None
+    # created_at : datetime | None
+    created_at: datetime = Field(
+        default_factory=lambda: datetime.now(timezone.utc)
+        )
