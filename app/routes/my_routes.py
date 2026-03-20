@@ -1,11 +1,11 @@
 from fastapi import APIRouter, Request
 from fastapi.responses import HTMLResponse
 from fastapi.templating import Jinja2Templates
-from models.contact import Contact
-from config.mongo_db_connection import contacts, projects
+from app.models.contact import Contact
+from app.config.mongo_db_connection import contacts, projects
 
 routes = APIRouter()
-templates = Jinja2Templates(directory="templates")
+templates = Jinja2Templates(directory="app/templates")
 
 def fetch_projects():
     docs = list(projects.find({}))
