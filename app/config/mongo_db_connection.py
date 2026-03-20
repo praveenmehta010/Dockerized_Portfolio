@@ -14,7 +14,6 @@ load_dotenv()
 # print(f'DATABASE_URL: {DATABASE_URL}')
 
 
-
 uri = os.getenv('MONGO_URI')
 # mongo database connection
 client = MongoClient(uri)

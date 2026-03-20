@@ -4,7 +4,5 @@ from routes.my_routes import routes
 
 app = FastAPI()
 
-
 app.mount("/static", StaticFiles(directory="static"))
 app.include_router(routes)
-

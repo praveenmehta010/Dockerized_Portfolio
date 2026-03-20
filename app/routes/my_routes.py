@@ -2,7 +2,6 @@ from fastapi import APIRouter, Request
 from fastapi.responses import HTMLResponse
 from fastapi.templating import Jinja2Templates
 from models.contact import Contact
-# from models.project import Project
 from config.mongo_db_connection import contacts, projects
 
 routes = APIRouter()
