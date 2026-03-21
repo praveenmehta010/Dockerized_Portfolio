@@ -134,7 +134,7 @@ MONGO_URI=mongodb+srv://username:password@database.mongodb.net/
 ### frontend/.env
 
 ```
-BACKEND_URL="http://backend:7000"
+BACKEND_URL=http://backend
 ```
 
 ---
