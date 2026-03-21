@@ -1,0 +1,50 @@
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# virtual environment
+.venv/
+venv/
+env/
+
+# git
+.git/
+.gitignore
+
+# environment variables
+.env
+
+# logs
+*.log
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# IDE files
+.vscode/
+.idea/
+
+# test files
+tests/
+
+# docker files not needed inside container
+docker-compose.yml
+.dockerignore
+
+# node modules (if frontend present)
+node_modules/
+
+# build folders
+dist/
+build/
+
+# coverage
+.coverage
+htmlcov/
+
+# temporary files
+*.tmp
+*.swp
