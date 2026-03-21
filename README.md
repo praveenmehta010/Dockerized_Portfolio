@@ -1,156 +1,264 @@
-# 🚀 Praveen Mehta Portfolio
+# 🚀 Praveen Mehta Portfolio (Dockerized Microservices)
 
-A modern developer portfolio built using **FastAPI, MongoDB Atlas, and HTML/CSS/JS**.
-This project showcases work, skills, and allows users to contact through a fully functional contact form. This data get saved in database
+A modern **developer portfolio** built using **FastAPI, MongoDB Atlas, HTML/CSS/JS**, designed with a **Docker-based microservices architecture**.
 
----
+This project demonstrates practical skills in:
 
-## 📌 Features
+* 🐳 Docker containerization
+* 🧩 Microservices architecture
+* 🔗 API communication between services
+* ☁️ Cloud-ready backend (MongoDB Atlas)
+* 📦 GitHub project structuring
+* ⚡ FastAPI backend development
 
-* 🧑‍💻 Personal portfolio website
-* 📂 Dynamic project listing (fetched from MongoDB)
-* 📩 Contact form (stores messages in database)
-* ⚡ FastAPI backend (fast & efficient)
-* 🎨 Clean, responsive UI
-
----
-
-## 🛠️ Tech Stack
-
-* **Backend:** FastAPI
-* **Frontend:** HTML, CSS, JavaScript
-* **Database:** MongoDB Atlas
-* **Templating:** Jinja2
+The application dynamically loads projects from the database and allows visitors to send messages via a contact form stored in MongoDB.
 
 ---
 
-## ⚙️ Setup Instructions
+# 🎯 Project Goals
 
-### 1️⃣ Clone the repository
+This project was built to showcase:
 
-```bash
+✔ ability to design **microservices architecture**
+✔ ability to **containerize applications using Docker**
+✔ ability to structure **production-style GitHub repositories**
+✔ understanding of **service communication**
+✔ ability to connect **cloud database (MongoDB Atlas)**
+✔ clean separation of **frontend and backend responsibilities**
+
+---
+
+# 🏗️ Architecture Overview
+
+The project follows a **2-service architecture**:
+
+```
+Browser
+   ↓
+Frontend Service (FastAPI + Jinja2)
+   ↓ REST API
+Backend Service (FastAPI)
+   ↓
+MongoDB Atlas (Cloud Database)
+```
+
+Each service runs in its own Docker container.
+
+---
+
+# 🐳 Docker Microservices
+
+The application is split into two independent services:
+
+### 1️⃣ Frontend Service
+
+* Serves UI using Jinja2 templates
+* Handles user interaction
+* Communicates with backend via REST API
+* Runs on port **3000**
+
+### 2️⃣ Backend Service
+
+* Handles business logic
+* Provides API endpoints
+* Connects to MongoDB Atlas
+* Runs on port **7000**
+
+---
+
+# 🛠️ Tech Stack
+
+### Backend
+
+* FastAPI
+* MongoDB Atlas
+* Pydantic
+
+### Frontend
+
+* HTML
+* CSS
+* JavaScript
+* Jinja2 Templates
+
+### DevOps / Tools
+
+* Docker
+* Docker Compose
+* Git & GitHub
+* Environment variables (.env)
+
+---
+
+# 📁 Project Structure
+
+```
+project/
+│
+├── backend/
+│   ├── app/
+│   │   ├── config/
+│   │   │   └── mongo_db_connection.py
+│   │   ├── models/
+│   │   │   └── contact.py
+│   │   ├── routes/
+│   │   │   └── my_routes.py
+│   │   └── main.py
+│   │
+│   ├── Dockerfile
+│   ├── .dockerignore
+│   ├── requirements.txt
+│   └── .env
+│
+├── frontend/
+│   ├── app/
+│   │   ├── static/
+│   │   │   ├── style.css
+│   │   │   └── script.js
+│   │   ├── templates/
+│   │   │   └── index.html
+│   │   └── main.py
+│   │
+│   ├── Dockerfile
+│   ├── .dockerignore
+│   ├── requirements.txt
+│   └── .env
+│
+├── docker-compose.yml
+├── .gitignore
+└── README.md
+```
+
+---
+
+# ⚙️ Setup Instructions (Docker)
+
+## 1️⃣ Clone repository
+
+```
 git clone https://github.com/praveenmehta010/Portfolio2.git
 cd Portfolio2
 ```
 
 ---
 
-### 2️⃣ Create virtual environment
+## 2️⃣ Configure environment variables
 
-```bash
-python -m venv venv
+### backend/.env
+
 ```
-
-#### Activate it:
-
-**Windows:**
-
-```bash
-venv\Scripts\activate
-```
-
-**Mac/Linux:**
-
-```bash
-source venv/bin/activate
+MONGO_URI="mongodb+srv://username:password@database.mongodb.net/"
+DATABASE_NAME="portfolio"
 ```
 
 ---
 
-### 3️⃣ Install dependencies
+### frontend/.env
 
-```bash
-pip install -r requirements.txt
+```
+BACKEND_URL="http://backend:7000"
 ```
 
 ---
 
-### 4️⃣ Create `.env` file
+## 3️⃣ Build and run containers
 
-Create a `.env` file in the root directory:
+```
+docker compose up --build
+```
 
-```env
-MONGO_URI=""
+Run in background:
 
-example
-MONGO_URI="mongodb+srv://username:password@database.net/" // you can get the URI from mongodb atlas
-
+```
+docker compose up -d --build
 ```
 
 ---
 
-### ⚠️ Important
+## 4️⃣ Access application
 
-* Replace `username` and `password` with your MongoDB credentials
-* Never share your `.env` file publicly
-* Add `.env` to `.gitignore`
+Frontend:
 
----
+```
+http://localhost:3000
+```
 
-### 5️⃣ Run the server
+Backend API docs:
 
-```bash
-uvicorn main:app --reload
+```
+http://localhost:7000/docs
 ```
 
 ---
 
-### 6️⃣ Open in browser
+# 🔗 API Endpoints
+
+### Backend Service
+
+| Method | Endpoint      | Description               |
+| ------ | ------------- | ------------------------- |
+| GET    | /get-projects | Fetch portfolio projects  |
+| POST   | /contact      | Save contact form message |
+
+---
+
+# 🧠 Key Concepts Demonstrated
+
+### Containerization
+
+Each service runs in an isolated Docker container.
+
+### Service Communication
+
+Frontend communicates with backend using internal Docker network:
 
 ```
-http://127.0.0.1:8000
+http://backend:7000
 ```
 
----
+### Environment Configuration
 
-## 📁 Project Structure
+Sensitive data stored securely using `.env` files.
 
-```
-project/
-├── app/
-│──── config/
-│     ├── mongo_db_connection.py
-│──── models/
-│     ├── contact.py
-│──── routes/
-│     ├── my_routes.py
-├──── static/
-│     ├── style.css
-│     ├── script.js
-├──── templates/
-│     ├── index.html
-│──── main.py
-│
-│── requirements.txt
-│── .env
-│── .gitignore
-│── README.md
-```
+### Cloud Database Integration
+
+MongoDB Atlas used for persistent storage.
+
+### GitHub Project Structure
+
+Clean and maintainable folder structure for scalability.
 
 ---
 
-## 📸 Features Overview
+# 💡 Why this project is useful
 
-* Projects are dynamically loaded from MongoDB Atlas
-* Contact form saves messages to database
-* Fully responsive and modern UI
+This project demonstrates practical understanding of:
 
----
-
-## 🚀 Future Improvements
-
-* 🔐 Admin dashboard for managing projects
-* 📝 Add/Edit projects via UI
-* ☁️ Cloud deployment (Render / Railway)
+* deploying applications using Docker
+* separating frontend and backend services
+* designing scalable backend APIs
+* structuring real-world GitHub repositories
+* preparing applications for cloud deployment
 
 ---
 
-## 📬 Contact
+# 🚀 Future Improvements
 
-Feel free to reach out through the contact form on the website 🚀
+* CI/CD pipeline using GitHub Actions
+* Deployment on AWS / Render
+* Admin dashboard
+* Authentication system
+* Kubernetes deployment
+* Automated testing
 
 ---
 
-## ⭐ Support
+# 📬 Contact
 
-If you like this project, consider giving it a ⭐ on GitHub!
+Feel free to reach out using the contact form available in the project.
+
+---
+
+# ⭐ Support
+
+If you found this project useful, consider giving it a ⭐ on GitHub.
