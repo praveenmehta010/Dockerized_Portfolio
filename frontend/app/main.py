@@ -26,3 +26,12 @@ async def read_item(request: Request):
         # Pass the data to the template in a context dictionary
         context={"projects": projects}
     )
+
+
+@app.post("/contact")
+async def contact(request: Request):
+    data = await request.json()
+    requests.post(
+        f"{BACKEND_URL}:7000/contact",
+        json=data
+    )
