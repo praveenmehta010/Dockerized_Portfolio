@@ -1,4 +1,4 @@
-# 🚀 Praveen Mehta Portfolio (Dockerized Microservices)
+# 🚀 Praveen Mehta Portfolio2.0 (Dockerized Microservices)
 
 A modern **developer portfolio** built using **FastAPI, MongoDB Atlas, HTML/CSS/JS**, designed with a **Docker-based microservices architecture**.
 
@@ -11,20 +11,7 @@ This project demonstrates practical skills in:
 * 📦 GitHub project structuring
 * ⚡ FastAPI backend development
 
-The application dynamically loads projects from the database and allows visitors to send messages via a contact form stored in MongoDB.
-
----
-
-# 🎯 Project Goals
-
-This project was built to showcase:
-
-✔ ability to design **microservices architecture**
-✔ ability to **containerize applications using Docker**
-✔ ability to structure **production-style GitHub repositories**
-✔ understanding of **service communication**
-✔ ability to connect **cloud database (MongoDB Atlas)**
-✔ clean separation of **frontend and backend responsibilities**
+The application dynamically loads projects from the database and allows visitors to send messages via a contact form stored in MongoDB Atlas.
 
 ---
 
@@ -32,15 +19,7 @@ This project was built to showcase:
 
 The project follows a **2-service architecture**:
 
-```
-Browser
-   ↓
-Frontend Service (FastAPI + Jinja2)
-   ↓ REST API
-Backend Service (FastAPI)
-   ↓
-MongoDB Atlas (Cloud Database)
-```
+Browser -> Frontend Service (FastAPI + Jinja2) -> REST API -> Backend Service (FastAPI) -> MongoDB Atlas (Cloud Database)
 
 Each service runs in its own Docker container.
 
@@ -147,8 +126,7 @@ cd Portfolio2
 ### backend/.env
 
 ```
-MONGO_URI="mongodb+srv://username:password@database.mongodb.net/"
-DATABASE_NAME="portfolio"
+MONGO_URI=mongodb+srv://username:password@database.mongodb.net/
 ```
 
 ---
@@ -193,7 +171,6 @@ http://localhost:7000/docs
 
 # 🔗 API Endpoints
 
-### Backend Service
 
 | Method | Endpoint      | Description               |
 | ------ | ------------- | ------------------------- |
@@ -227,18 +204,6 @@ MongoDB Atlas used for persistent storage.
 ### GitHub Project Structure
 
 Clean and maintainable folder structure for scalability.
-
----
-
-# 💡 Why this project is useful
-
-This project demonstrates practical understanding of:
-
-* deploying applications using Docker
-* separating frontend and backend services
-* designing scalable backend APIs
-* structuring real-world GitHub repositories
-* preparing applications for cloud deployment
 
 ---
 
