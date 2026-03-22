@@ -10,4 +10,3 @@ venv/
 # Environment variables
 .env
 
-./.github/workflows/github-actions-demo.yml
