@@ -1,4 +1,4 @@
-# 🚀 Praveen Mehta Portfolio2.0 (Dockerized Microservices)
+# 🚀 Dockerized Portfolio
 
 A modern **developer portfolio** built using **FastAPI, MongoDB Atlas, HTML/CSS/JS**, designed with a **Docker-based microservices architecture**.
 
