@@ -13,8 +13,10 @@ jobs:
       - name: list Repositors
         run : |
           ls
-          cd ./backend
-          ls
+          echo "MONGO_URI=${{ secrets.MONGO_URI }}" >> backend/.env
+          echo "BACKEND_URL=${{ secrets.BACKEND_URL }}" >> frontend/.env
+          ls -a ./backend
+          ls -a ./frontend
       
 
       - name: Build project using compose
