@@ -6,6 +6,7 @@ This project demonstrates practical skills in:
 
 * 🐳 Docker containerization
 * 🧩 Microservices architecture
+* ⚙️ CI/CD pipeline using GitHub Actions
 * 🔗 API communication between services
 * ☁️ Cloud-ready backend (MongoDB Atlas)
 * 📦 GitHub project structuring
@@ -45,6 +46,39 @@ The application is split into two independent services:
 
 ---
 
+# ⚙️ CI/CD Pipeline (GitHub Actions)
+
+This project includes a CI pipeline using GitHub Actions to automatically build and test the application whenever code is pushed to the repository.
+
+The workflow ensures that the application builds correctly and that the backend API is reachable.
+
+## 🚀 CI Workflow Steps
+
+When code is pushed to the repository, the pipeline performs the following steps:
+
+### 1️⃣ Checkout the repository code
+
+### 2️⃣ Build the Docker images for both services
+
+Frontend container
+Backend container
+
+### 3️⃣ Start the services using Docker Compose
+
+### 4️⃣ Wait for containers to initialize
+
+### 5️⃣ Test the backend API using a curl request
+
+Example test step:
+```
+- name: Test Backend API
+  run: curl http://localhost:7000
+```
+If the API responds successfully, the workflow passes.
+
+If the API fails to start, the pipeline fails.
+
+---
 # 🛠️ Tech Stack
 
 ### Backend
