@@ -169,6 +169,8 @@ MONGO_URI=mongodb+srv://username:password@database.mongodb.net/
 
 ```
 BACKEND_URL=http://backend
+
+PROFILE_IMAGE_URL=YOUR_PROFILE_IMAGE_URL
 ```
 
 ---

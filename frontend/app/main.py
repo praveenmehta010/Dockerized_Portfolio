@@ -10,6 +10,7 @@ from dotenv import load_dotenv
 load_dotenv()
 
 BACKEND_URL = os.getenv("BACKEND_URL")
+PROFILE_IMAGE_URL = os.getenv("PROFILE_IMAGE_URL")
 
 app = FastAPI()
 
@@ -24,7 +25,7 @@ async def read_item(request: Request):
     return templates.TemplateResponse(
         request=request, name="index.html",
         # Pass the data to the template in a context dictionary
-        context={"projects": projects}
+        context={"projects": projects, "PROFILE_IMAGE_URL" : PROFILE_IMAGE_URL}
     )
 
 
