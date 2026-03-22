@@ -11,10 +11,14 @@ jobs:
         uses: actions/checkout@v4
       
       - name: list Repositors
-        run : ls
+        run : |
+          ls
+          cd/backend
+          ls
+      
 
-      # - name: Build project using compose
-      #   run: docker compose up -d --build
+      - name: Build project using compose
+        run: docker compose up -d --build
 
-      # - name: Test Frontend
-      #   run: curl http://localhost:7000
+      - name: Test Frontend
+        run: curl http://localhost:7000
