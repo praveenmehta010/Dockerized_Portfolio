@@ -13,7 +13,7 @@ jobs:
       - name: list Repositors
         run : |
           ls
-          cd/backend
+          cd ./backend
           ls
       
 
