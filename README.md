@@ -149,8 +149,8 @@ project/
 ## 1️⃣ Clone repository
 
 ```
-git clone https://github.com/praveenmehta010/Portfolio2.git
-cd Portfolio2
+git clone https://github.com/praveenmehta010/Dockerized_Portfolio
+cd Dockerized_Portfolio
 ```
 
 ---
